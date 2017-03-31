@@ -1,0 +1,10 @@
+syntax = "proto2";
+
+import "google/protobuf/descriptor.proto";
+
+package soul;
+
+extend google.protobuf.FieldOptions {
+    optional bool updatekey = 1000[default=false];
+    optional bool primarykey = 1001[default=false];
+}

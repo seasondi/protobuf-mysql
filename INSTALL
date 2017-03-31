@@ -1,0 +1,20 @@
+#!/bin/bash
+
+echo `date "+%F %T"`
+
+if  [ "$1" == "clean" ]   ;then
+    rm -rf ./build/*
+    touch *.cpp
+    touch *.h
+	exit
+fi
+
+[ -d  ./build  ] ||  mkdir ./build
+cd build
+cmake ../
+
+if  [ "$?" != "0" ]   ;then
+    rm -rf ./build/*
+else
+    make -j 4
+fi
