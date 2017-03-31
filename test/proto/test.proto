@@ -1,0 +1,22 @@
+syntax = "proto2";
+
+import "MysqlDescriptor.proto";
+
+package soul;
+
+message table_field_message {
+    optional int32 filedint = 1;
+    optional uint32 fielduint = 2;
+    optional string fieldstring = 3;
+}
+
+message table_test {
+    optional uint32 keyid = 1[(primarykey)=true];
+    optional uint32 field1 = 2[(updatekey)=true];
+    optional uint32 field2 = 3;
+    optional table_field_message field3 = 4;
+}
+
+message table_test_repeated {
+    repeated table_test fields = 1;
+}

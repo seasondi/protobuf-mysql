@@ -1,0 +1,6 @@
+#!/bin/bash
+
+rm -f ../*.cc ../*.h
+protoc -I=./ -I=../../ --cpp_out=./  `ls *.proto`
+
+cp ../../MysqlDescriptor.pb.h .
